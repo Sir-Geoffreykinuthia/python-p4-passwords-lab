@@ -47,9 +47,9 @@ class Login(Resource):
 
 class Logout(Resource):
     def delete(self):
-        if "user_id" in session:
-            session.pop("user_id")
-        return {}, 204
+        session["user_id"] = None
+        return {}, 200
+
         
 api.add_resource(CheckSession,'/check_session', endpoint="check_session" )
 api.add_resource(Login, '/login', endpoint='login')
